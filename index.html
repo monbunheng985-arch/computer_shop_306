@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asset/css/bootstrap.css">
+    <link rel="stylesheet" href="asset/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="asset/css/custom.css">
+    <style>
+      /* NOTE: footer classes are prefixed with "site-" so they never clash with Bootstrap's .col, .badge, etc. */
+      .site-footer { background: #f6f6f6; padding: 40px 40px 28px; margin-top: 48px; font-family: "Inter", system-ui, sans-serif; color: #111; }
+      .site-footer a { color: inherit; text-decoration: none; }
+      .site-footer ul { list-style: none; margin: 0; padding: 0; }
+      .site-footer p, .site-footer h4 { margin: 0; }
+      .site-footer-inner { max-width: 1200px; margin: 0 auto; }
+
+      /* Same top edge for every column, equal widths for the 4 link columns */
+      .site-footer-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) repeat(4, minmax(0, 1fr)) minmax(0, 1.6fr);
+        gap: 32px;
+        align-items: start;
+        padding-bottom: 28px;
+        border-bottom: 1px solid #e3e3e3;
+      }
+
+      /* Brand */
+      .site-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; line-height: 24px; }
+      .site-brand-logo { width: 24px; height: 24px; border-radius: 6px; background: #111; color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+      .site-tagline { margin-top: 4px; margin-left: 34px; font-size: 10px; color: #777; }
+      .site-about { margin-top: 14px; font-size: 11px; line-height: 1.7; color: #777; max-width: 220px; }
+      .site-badges { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 9px; color: #777; }
+      .site-badge { padding: 5px 10px; border: 1px solid #ddd; border-radius: 999px; background: #fff; color: #111; font-weight: 500; }
+
+      /* Link columns: heading has a fixed height so every list starts on the same row */
+      .site-col h4 { height: 24px; line-height: 24px; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #777; margin-bottom: 8px; }
+      .site-col ul { display: grid; gap: 12px; }
+      .site-col li { line-height: 16px; }
+      .site-col a { font-size: 11px; color: #555; transition: color .15s; }
+      .site-col a:hover { color: #111; }
+
+      /* Newsletter */
+      .site-newsletter p { font-size: 11px; line-height: 1.6; color: #555; margin-bottom: 12px; }
+      .site-subscribe { display: flex; align-items: center; gap: 8px; padding: 6px; background: #fff; border: 1px solid #e3e3e3; border-radius: 10px; }
+      .site-subscribe input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 10px; padding: 6px 8px; color: #111; }
+      .site-subscribe input::placeholder { color: #aaa; }
+      .site-subscribe button { border: 0; cursor: pointer; background: #111; color: #fff; font: inherit; font-size: 10px; font-weight: 600; padding: 8px 12px; border-radius: 8px; }
+      .site-subscribe:focus-within { outline: 2px solid #111; outline-offset: 2px; }
+
+      /* Bottom bar */
+      .site-footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 22px; font-size: 9px; color: #777; }
+      .site-social { display: flex; align-items: center; gap: 10px; }
+      .site-social span { margin-right: 6px; }
+      .site-social a { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 1px solid #e3e3e3; color: #2a3f5f; transition: border-color .15s; }
+      .site-social a:hover { border-color: #111; }
+      .site-social svg { width: 12px; height: 12px; fill: currentColor; }
+
+      /* Responsive */
+      @media (max-width: 1000px) {
+        .site-footer-top { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .site-brand-col, .site-newsletter { grid-column: 1 / -1; }
+      }
+      @media (max-width: 560px) {
+        .site-footer { padding: 28px 20px; }
+        .site-footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .site-footer-bottom { flex-direction: column; gap: 14px; align-items: flex-start; }
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <img src="asset/image/logo/logo.png" alt="Logo" class="navbar-brand-img" style="width: 7cap;height: 70px;">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">ទំព័រដើម</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">អំពីយើង</a></li>
+              <li class="nav-item"><a class="nav-link" href="product.html">ផលិតផល</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">ទំនាក់ទំនង</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000"><img src="asset/image/banner/1.jpg" class="d-block w-100" alt="..."></div>
+        <div class="carousel-item" data-bs-interval="3000"><img src="asset/image/banner/2.jpg" class="d-block w-100" alt="..."></div>
+        <div class="carousel-item" data-bs-interval="2000"><img src="asset/image/banner/3.jpg" class="d-block w-100" alt="..."></div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Product cards: one grid, wraps automatically 3 per row (was 6 separate rows) -->
+    <main class="container" style="margin-top: 1px;margin-bottom: 1px;">
+      <h5 class="text-center mt-4 mb-4">Our Products</h5>
+      <div class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="col"><div class="card"><img src="asset/image/product/h1.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 1</a><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/h2.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 2</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/h3.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 3</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+
+        <div class="col"><div class="card "><img src="asset/image/product/4.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 4</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/5.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 5</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/6.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 6</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+
+        <div class="col"><div class="card "><img src="asset/image/product/7.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 7</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/8.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 8</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/9.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 9</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+
+        <div class="col"><div class="card "><img src="asset/image/product/10.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 10</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/11.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 11</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/12.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 12</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+
+        <div class="col"><div class="card "><img src="asset/image/product/13.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 13</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/14.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 14</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/15.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 15</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+
+        <div class="col"><div class="card "><img src="asset/image/product/16.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 16</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/17.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 17</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+        <div class="col"><div class="card "><img src="asset/image/product/18.jpg" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">Item 18</h5><p class="card-text"></p></div><div class="card-footer"><small class="text-body-secondary">Last updated 3 mins ago</small></div></div></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-top">
+
+          <div class="site-brand-col">
+            <div class="site-brand"><span class="site-brand-logo">A</span> Atlas Studio</div>
+            <p class="site-tagline">Built for clarity, speed, and long-term growth.</p>
+            <p class="site-about">A modern digital workspace for teams that need polished product experiences, clear information architecture, and a foundation that scales with confidence.</p>
+            <div class="site-badges">
+              <span class="site-badge">Support 24/7</span>
+              <span>Updated weekly</span>
+            </div>
+          </div>
+
+          <nav class="site-col" aria-label="Product">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Templates</a></li>
+              <li><a href="#">Integrations</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </nav>
+
+          <nav class="site-col" aria-label="Company">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+
+          <nav class="site-col" aria-label="Resources">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Guides</a></li>
+              <li><a href="#">API Docs</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </nav>
+
+          <nav class="site-col" aria-label="Legal">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Accessibility</a></li>
+            </ul>
+          </nav>
+
+          <div class="site-col site-newsletter">
+            <h4>Newsletter</h4>
+            <p>Get product updates, launch notes, and design insights delivered to your inbox.</p>
+            <div class="site-subscribe">
+              <input type="email" placeholder="Email address" aria-label="Email address">
+              <button type="button">Subscribe</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="site-footer-bottom">
+          <p>&copy; 2026 Atlas Studio. All rights reserved.</p>
+          <div class="site-social">
+            <span>Follow us</span>
+            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.8A11.6 11.6 0 0 1 3.4 4.8a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5 0 2 1.4 3.7 3.3 4.1-.6.2-1.2.2-1.8.1.5 1.6 2 2.8 3.8 2.8A8.3 8.3 0 0 1 2 18.5 11.6 11.6 0 0 0 8.3 20.3c7.5 0 11.700-6.300 11.700-11.700v-.5c.8-.6 1.500-1.300 2-2.200z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.500 8.500h3.700V20H4.500zM6.400 3a2.100 2.100 0 1 1 0 4.200 2.100 2.100 0 0 1 0-4.200zM10.400 8.500H14v1.600c.5-1 1.800-1.900 3.700-1.900 3.800 0 4.500 2.500 4.500 5.700V20h-3.700v-5.300c0-1.300 0-2.900-1.800-2.900s-2 1.400-2 2.800V20h-3.700z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.300A4.700 4.700 0 1 0 12 16.700 4.700 4.700 0 0 0 12 7.300zm0 7.700a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM17.200 6a1.100 1.100 0 1 0 0 2.200 1.100 1.100 0 0 0 0-2.200zM16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5zm3.300 13a3.300 3.300 0 0 1-3.300 3.300H8A3.300 3.300 0 0 1 4.700 16V8A3.300 3.300 0 0 1 8 4.700h8A3.300 3.300 0 0 1 19.300 8z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.600 7.200a2.500 2.500 0 0 0-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4A2.500 2.500 0 0 0 2.400 7.200C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800c.4-1.600.4-4.800.4-4.800s0-3.200-.4-4.800zM10 15V9l5.200 3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- bootstrap.bundle.js already includes everything in bootstrap.js, so only load one -->
+    <script src="asset/js/bootstrap.bundle.js"></script>
+</body>
+</html>
